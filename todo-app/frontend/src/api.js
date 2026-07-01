@@ -14,13 +14,9 @@ export async function createTodo(title) {
 }
 
 export async function toggleTodo(id) {
-  await fetch(`${API}/todos/${id}`, {
-    method: "PUT",
-  });
+  await fetch(`${API}/todos/${id}`, { method: "PUT" });
 }
 
 export async function deleteTodo(id) {
-  await fetch(`${API}/todos/${id}`, {
-    method: "DELETE",
-  });
+  await fetch(`${API}/todos/${id}`, { method: "DELETE" });
 }
