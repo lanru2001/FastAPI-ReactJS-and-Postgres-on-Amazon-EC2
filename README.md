@@ -4,8 +4,11 @@ Production-style example of a GitHub Actions CI/CD pipeline that deploys a simpl
 
 Frontend: ReactJS
 Backend: Python (Flask/FastAPI/Django)
+
 Database: PostgreSQL
+
 Deployment Target: Ubuntu EC2 instance
+
 Deployment Method: Docker Compose over SSH
 
 ```
