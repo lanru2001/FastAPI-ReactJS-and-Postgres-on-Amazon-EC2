@@ -5,41 +5,47 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [title, setTitle] = useState("");
 
-  const load = async () => {
+  const loadTodos = async () => {
     const data = await getTodos();
     setTodos(data);
   };
 
   useEffect(() => {
-    load();
+    loadTodos();
   }, []);
 
   const addTodo = async () => {
+    if (!title) return;
     await createTodo(title);
     setTitle("");
-    load();
+    loadTodos();
   };
 
   return (
-    <div style={{ padding: 20 }}>
+    <div className="container">
       <h1>Todo App</h1>
 
       <input
         value={title}
+        placeholder="Enter todo..."
         onChange={(e) => setTitle(e.target.value)}
       />
       <button onClick={addTodo}>Add</button>
 
-      <ul>
+      <ul style={{ listStyle: "none", padding: 0 }}>
         {todos.map((t) => (
           <li key={t.id}>
             <span
-              onClick={() => toggleTodo(t.id).then(load)}
-              style={{ textDecoration: t.completed ? "line-through" : "" }}
+              onClick={() => toggleTodo(t.id).then(loadTodos)}
+              style={{
+                cursor: "pointer",
+                textDecoration: t.completed ? "line-through" : "none"
+              }}
             >
               {t.title}
             </span>
-            <button onClick={() => deleteTodo(t.id).then(load)}>
+
+            <button onClick={() => deleteTodo(t.id).then(loadTodos)}>
               X
             </button>
           </li>
