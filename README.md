@@ -7,6 +7,8 @@ Backend: Python (Flask/FastAPI/Django)
 Database: PostgreSQL
 Deployment Target: Ubuntu EC2 instance
 Deployment Method: Docker Compose over SSH
+
+```
 Architecture
                    GitHub Repository
                           |
@@ -31,3 +33,4 @@ Architecture
              docker compose up -d --build
                           |
              Python API + React + PostgreSQL
+```
