@@ -3,6 +3,7 @@
 Production-style example of a GitHub Actions CI/CD pipeline that deploys a simple Todo application consisting of:
 
 Frontend: ReactJS
+
 Backend: Python (Flask/FastAPI/Django)
 
 Database: PostgreSQL
