@@ -38,3 +38,30 @@ Architecture
                           |
              Python API + React + PostgreSQL
 ```
+
+```
+todo-app/
+│
+├── backend/
+│   ├── app.py
+│   ├── Dockerfile
+│   ├── requirements.txt
+│   └── ...
+│
+├── frontend/
+│   ├── src/
+│   ├── Dockerfile
+│   ├── package.json
+│   └── ...
+│
+├── database/
+│
+├── docker-compose.yml
+│
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
+│
+└── README.md
+
+```
