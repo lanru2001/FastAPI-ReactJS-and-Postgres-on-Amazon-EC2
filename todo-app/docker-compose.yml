@@ -1,33 +1,27 @@
-#
+version: "3.8"
 
-version: "3.9"
 services:
-  postgres:
-    image: postgres:16
-    restart: always
+  db:
+    image: postgres:15
     environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
       POSTGRES_DB: todo
-      POSTGRES_USER: todo
-      POSTGRES_PASSWORD: password
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
+
   backend:
     build: ./backend
-    restart: always
     environment:
-      DATABASE_URL: postgresql://todo:password@postgres:5432/todo
-    depends_on:
-      - postgres
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/todo
     ports:
-      - "5000:5000"
+      - "8000:8000"
+    depends_on:
+      - db
+
   frontend:
     build: ./frontend
-    restart: always
+    ports:
+      - "3000:3000"
     depends_on:
       - backend
-    ports:
-      - "80:80"
-volumes:
-  postgres_data:
