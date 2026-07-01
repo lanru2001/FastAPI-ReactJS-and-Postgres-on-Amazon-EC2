@@ -64,4 +64,20 @@ todo-app/
 │
 └── README.md
 
+# HOW TO DEPLOY
+
+cd infra
+terraform init
+
+terraform apply -var="key_name=your-ec2-keypair"
+
+terraform output
+
+app_url = http://54.xx.xx.xx
+
+scp -r todo-app ubuntu@<EC2-IP>:/home/ubuntu/app
+
+ssh ubuntu@<EC2-IP>
+cd /home/ubuntu/app
+docker-compose up --build -d
 ```
